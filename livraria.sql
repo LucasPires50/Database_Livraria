@@ -75,9 +75,10 @@ pais_de_origem varchar(45)
 
 create table autor_escreve_livro
 (
-livro_codigo int unsigned not null primary key,
-foreign key (livro_codigo)  references livro(Codigo_Do_Livro),
-autor_pseudonimo varchar(45) not null primary key,
+livro_codigo int not null,
+autor_pseudonimo varchar(45) not null ,
+primary key (livro_codigo,autor_pseudonimo),
+foreign key (livro_codigo) references livro(Codigo_Do_Livro),
 foreign key (autor_pseudonimo) references autor(pseudonimo)
 );
 
