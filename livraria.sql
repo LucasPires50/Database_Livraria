@@ -10,7 +10,7 @@ Mini Mundo livraria
 -- DDL - Data Defintion Language
 create database livraria;
 use livraria;
-
+###########################################################################################################################################
 create table edicao 
 (
 Isbn int(10) unsigned zerofill not null primary key ,
@@ -28,7 +28,7 @@ values
 (7853-653, 2017, 75, 300, 35.85, "BG books", 4),
 (85-96-32, 1989, 500, 90, 250, "Cultura Cristã AM", 5);
 select * from edicao;edicao
-
+###########################################################################################################################################
 create table editora
 (
 -- collate utf8mb4_bin = é para destinguir as letras Maiúsculas de Minúsculas
@@ -43,7 +43,7 @@ insert into editora values
 ("AD Santos", "Adinominal Santos", "Rua Itu, 1.120 - Vila Carvalho"),
 ("BG books", "Big books", " Pedro Colino, nº 271 - Res. Léo Gomes de Moraes"),
 ("Cultura Cristã AM", "Cultura Cristã Amém", "Rua Cruz e Souza, 3.100 - Parque Ribeirão Preto");
-
+###########################################################################################################################################
 create table livro
 (
 Codigo_Do_Livro int unique not null primary key auto_increment,
@@ -59,6 +59,7 @@ values
 ( "Seja foda!", "Espanhol", 2015),
 ( "Mindset", "Português", 2019),
 ( "Se Foda", "Português", 2017);
+
 
 update livro set Ano_Lancamento_Livro = 1910 where Codigo_Do_Livro = 1;
 
@@ -79,7 +80,7 @@ add foreign key(livro_Codigo) references livro(Codigo_Do_Livro);
 alter table edicao
 add column fk_nome_editora varchar(100) not null collate utf8mb4_bin,
 add foreign key (fk_nome_editora) references editora(Nome_Da_Editora);
-
+###########################################################################################################################################
 create table telefone
 (
 id_telefone int unsigned not null auto_increment,
@@ -89,6 +90,20 @@ primary key(id_telefone),
 foreign key (editora_nome) references editora(Nome_Da_Editora)
 );
 
+insert into telefone (editora_nome, numero)
+values 
+("Alemã", "7895-6325"),
+("Actual", "7956-3262"),
+("AD Santos", "4561-5637"),
+("BG books", "4569-7845")
+("Cultura Cristã AM", "1326-4529");
+
+update telefone set numero = "7895-6325" where id_telefone = 1;
+update telefone set numero = "7956-3262" where id_telefone = 2;
+update telefone set numero = "4561-5637" where id_telefone = 3;
+update telefone set numero = "4569-7845" where id_telefone = 4;
+update telefone set numero = "1326-4529" where id_telefone = 5;
+######################################################################################################################TABELA AUTOR
 create table autor 
 (
 pseudonimo varchar(45) not null primary key,
@@ -98,6 +113,16 @@ nota_bibliografica tinytext,
 pais_de_origem varchar(45)
 );
 
+insert into autor values
+("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
+("Amaraldo de sá", "Amaral", 1960, , "Espanha"),
+("Amaraldo de sá", "Amaral", 1950, , "Holanda"),
+("Amaraldo de sá", "Amaral", 1950, , "Portugula"),
+("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
+("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
+("Amaraldo de sá", "Amaral", 1950, , "Brasil"),;
+
+###########################################################################################################################################
 create table autor_escreve_livro
 (
 livro_codigo int not null,
