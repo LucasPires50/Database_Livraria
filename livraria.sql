@@ -20,14 +20,15 @@ Quandiadade_Em_Estoque int not null,
 Preco_De_Venda decimal(5,2) not null
 );
 
-insert into edicao (Isbn, Ano_De_Publicacao, Quandiadade_De_Paginas, Quandiadade_Em_Estoque, Preco_De_Venda, fk_nome_editora, livro_Codigo)
+insert into edicao (Isbn ,Ano_De_Publicacao, Quandiadade_De_Paginas, Quandiadade_Em_Estoque, Preco_De_Venda, fk_nome_editora, livro_Codigo)
 values 
-(789-45-12, 1990, 200, 25, 79.69, "Alemã", 1),
-(45698-45, 2000, 180, 90, 100.78, "Actual", 2),
-(46-44368, 2015, 50, 180, 56.00, "AD Santos" , 3),
-(7853-653, 2017, 75, 300, 35.85, "BG books", 4),
-(85-96-32, 1989, 500, 90, 250, "Cultura Cristã AM", 5);
-select * from edicao;edicao
+(7894512, 1990, 200, 25, 79.69, "Alemã", 1),
+(2565845, 2000, 180, 90, 100.78, "Actual", 2),
+(4644368, 2015, 50, 180, 56.00, "AD Santos" , 3),
+(383653, 2017, 75, 300, 35.85, "BG books", 4),
+(859632, 1989, 500, 90, 250, "Cultura Cristã AM", 5);
+
+
 ###########################################################################################################################################
 create table editora
 (
@@ -43,10 +44,11 @@ insert into editora values
 ("AD Santos", "Adinominal Santos", "Rua Itu, 1.120 - Vila Carvalho"),
 ("BG books", "Big books", " Pedro Colino, nº 271 - Res. Léo Gomes de Moraes"),
 ("Cultura Cristã AM", "Cultura Cristã Amém", "Rua Cruz e Souza, 3.100 - Parque Ribeirão Preto");
+
 ###########################################################################################################################################
 create table livro
 (
-Codigo_Do_Livro int unique not null primary key auto_increment,
+Codigo_Do_Livro int not null primary key auto_increment,
 Titulo_Livro varchar(100) unique null, 
 Idioma varchar(100),
 Ano_Lancamento_Livro year(4) not null
@@ -61,7 +63,7 @@ values
 ( "Se Foda", "Português", 2017);
 
 
-update livro set Ano_Lancamento_Livro = 1910 where Codigo_Do_Livro = 1;
+/*update livro set Ano_Lancamento_Livro = 1910 where Codigo_Do_Livro = 1;
 
 -- Comando para alterar uma coluna da tabela
 alter table livro change column Codigo_Do_Livro
@@ -69,8 +71,9 @@ Codigo_Do_Livro int not null auto_increment;
 
 -- Comandos para mostarar as colunas da tabela 
 desc livro;
-show columns from editora;
-
+show columns from editora;	
+*/
+		
 # Criar e link a chave estrangeira nas tabelas
 -- link entre a tabela edição e a tabela livro
 alter table edicao 
@@ -95,14 +98,18 @@ values
 ("Alemã", "7895-6325"),
 ("Actual", "7956-3262"),
 ("AD Santos", "4561-5637"),
-("BG books", "4569-7845")
+("BG books", "4569-7845"),
 ("Cultura Cristã AM", "1326-4529");
 
+/*
+PARA ATUALIZAR DADOS ESPECÍFICOS NA TABELA
 update telefone set numero = "7895-6325" where id_telefone = 1;
 update telefone set numero = "7956-3262" where id_telefone = 2;
 update telefone set numero = "4561-5637" where id_telefone = 3;
 update telefone set numero = "4569-7845" where id_telefone = 4;
 update telefone set numero = "1326-4529" where id_telefone = 5;
+*/
+
 ######################################################################################################################TABELA AUTOR
 create table autor 
 (
@@ -114,14 +121,23 @@ pais_de_origem varchar(45)
 );
 
 insert into autor values
-("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
-("Amaraldo de sá", "Amaral", 1960, , "Espanha"),
-("Amaraldo de sá", "Amaral", 1950, , "Holanda"),
-("Amaraldo de sá", "Amaral", 1950, , "Portugula"),
-("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
-("Amaraldo de sá", "Amaral", 1950, , "Brasil"),
-("Amaraldo de sá", "Amaral", 1950, , "Brasil"),;
-
+("Amaraldo de sá", "Amaral", 1950, "As Referências Bibliográficas conforme Normas ABNT para Tese, TCC, Monografia, Artigo Científico,
+ qualquer trabalho acadêmico precisam seguir um padrão único para que seja facilitado futuras pesquisas.", "Brasil"),
+("João de Barro", "João", 1960, "Normas da ABNT trazem uma exigência um tanto complexa quanto às referências bibliográficas.
+ A dificuldade que muitas vezes ocorre em aplicá-las é devido ao fato de existirem formas específicas para cada tipo de referência
+ feita, seja ela de Livros ou de Sites.", "Espanha"),
+("Marta Maira", "Marta", 1970, " Nosso objetivo é fazer com que você entenda os pontos principais destas normas e passe a aplicá-las
+ com facilidade. Ao final terá compreendido como fazer o registro das produções que embasaram seu trabalho.", "Holanda"),
+("Garara", "Gabriel", 1980, "No artigo Normas ABNT  você teve a oportunidade de conhecer todas as partes que precisa elaborar. 
+Agora, resta descobrir como citar ou fazer referências bibliográficas obras e autores pesquisados.", "Portugula"),
+("Jacinto de Lapís", "Jasinto", 1990, "Referências Bibliográficas é uma seção considerada como parte dos Elementos pós-textuais,
+ em um trabalho acadêmico.", "Brasil"),
+("Parananauá", "Pará", 1940, "rata-se de apontar tudo que foi consultado. Saiba que não é proibido investigar, pesquisar e tomar 
+como base um trabalho já pronto e de autoria reconhecida. É natural que busquemos embasar nosso projeto.", "Brasil"),
+("Bolota", "Batata", 1930, "Referenciar e citar não consiste em copiar o pensamento alheio, mas sim em dar valor ao 
+conhecimento científico já existente. ", "Brasil");
+select * from autor;
+ 
 ###########################################################################################################################################
 create table autor_escreve_livro
 (
@@ -133,5 +149,13 @@ foreign key (livro_codigo) references livro(Codigo_Do_Livro),
 foreign key (autor_pseudonimo) references autor(pseudonimo)
 );
 
+insert into autor_escreve_livro values
+(1, "Amaraldo de sá"),
+(2, "João de Barro"),
+(3, "Marta Maira"),
+(4, "Garara"),
+(5, "Jacinto de Lapís"),
+(1, "Parananauá"),
+(2, "Bolota");
 
-
+select * from autor_escreve_livro;
