@@ -117,15 +117,15 @@ grau_cientifico varchar(50));
 
 insert into informacao_comum values 
 -- pesquisadores
-("SÉRGIO EITI PEREIRA SUZUKI", 236598, "456.632.658-63", "2001/02/12", "Masculino", "Ensino Superior"),
-("LUCAS DE OLIVEIRA TRINDADE", 458963, "248.678.123-78", "2000/09/10", "Masculino", "Doutorado"),
+("SÉRGIO EITI PEREIRA SUZUKI", 236598, "456.632.658-63", "1990/02/12", "Masculino", "Ensino Superior"),
+("LUCAS DE OLIVEIRA TRINDADE", 458963, "248.678.123-78", "1980/09/10", "Masculino", "Doutorado"),
 ("FERNANDO MIRA MACHUCA", 789632, "324.456.159-32", "2001/12/07", "Masculino", "Mestrado"),
 ("VICTOR SOARES SISMOTTO", 235689, "125.753.951-56", "2000/01/15", "Masculino", "Ensino Superior"),
-("LUISA GASPARI DIAS", 125987, "951.753.456-95", "2001/06/16", "Feminino", "Mestrado"),
+("LUISA GASPARI DIAS", 125987, "951.753.456-95", "1980/06/16", "Feminino", "Mestrado"),
 -- Avaliadores
-("Edson José Pacheco", 4569873, "236.987.412-36", "2000/01/03", "Masculino", "Mestrado"),
-("Alexandre Rasi Aoki", 852369, "789.963.321-47", "2001/01/19", "Masculino", "Doutorado"),
-("João Américo Vilela Junior", 456133, "246.759.571-59", "2000/08/18", "Masculino", "Doutorado");
+("Edson José Pacheco", 4569873, "236.987.412-36", "1960/01/03", "Masculino", "Mestrado"),
+("Alexandre Rasi Aoki", 852369, "789.963.321-47", "1985/01/19", "Masculino", "Doutorado"),
+("João Américo Vilela Junior", 456133, "246.759.571-59", "1976/08/18", "Masculino", "Doutorado");
 
 
 ###########################################################################################################################
