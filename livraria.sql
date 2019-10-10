@@ -191,3 +191,9 @@ select * from livro;
 # Faça uma busca e mostre o nome completo do autor 
 # o nome do livro e o país do autor, idioma e ano de lançamento do livro
 # nesta ordem.
+
+select nome_de_nascimento, Titulo_Livro, pais_de_origem, Idioma, Ano_Lancamento_Livro
+from autor_escreve_livro
+inner join autor on autor_pseudonimo = pseudonimo 
+inner join livro on livro_codigo = Codigo_Do_Livro ;
+
