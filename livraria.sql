@@ -158,4 +158,36 @@ insert into autor_escreve_livro values
 (1, "Parananauá"),
 (2, "Bolota");
 
-select * from autor_escreve_livro;
+# Mostre quantos autores há na tabela:
+select count(pseudonimo) as "Quantidade de autores" 
+from autor;
+
+
+# Mostre quantos autore hà, por pais:
+select count(pseudonimo) as "Quantidade de autores" 
+from autor
+group by pais_de_origem;
+
+# Juntando dois ou mais selects de mesma estrutura  
+select pais_de_origem,count(pseudonimo) as "Quantidade de autores" 
+from autor
+group by pais_de_origem
+union -- comando que faz a união de dois ou mais select.
+select 'Total',count(pseudonimo) as "Quantidade de autores" 
+from autor;
+
+# Mostre o nome dos países, sem repetição
+select distinct pais_de_origem as Países from autor;
+
+# Mostre quantos países a na tabela, sem repetição.
+select distinct count(distinct pais_de_origem) as Países from autor;
+
+# Popular a tabela autor descreve livro
+
+desc autor_escreve_livro;
+select * from autor;
+select * from livro;
+
+# Faça uma busca e mostre o nome completo do autor 
+# o nome do livro e o país do autor, idioma e ano de lançamento do livro
+# nesta ordem.
