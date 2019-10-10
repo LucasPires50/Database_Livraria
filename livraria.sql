@@ -197,3 +197,8 @@ from autor_escreve_livro
 inner join autor on autor_pseudonimo = pseudonimo 
 inner join livro on livro_codigo = Codigo_Do_Livro ;
 
+desc edicao;
+select * from livro; 
+select * from editora;
+insert into edicao values
+(123654, 2010, 323, 20, 150.00, 2, 'AD Santos');
